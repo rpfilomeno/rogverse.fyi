@@ -1,0 +1,72 @@
+site:
+  name: ROGVERSE
+  site: 'https://rogverse.fyi'
+  base: '/'
+  trailingSlash: false
+
+  googleSiteVerificationId: u3UXYaHzy-Rz60-uAKJR1rbHjZCDJrDfncLGj1rj4Bo
+
+# Default SEO metadata
+metadata:
+  title:
+    default: ROGVERSE
+    template: '%s — AstroWind'
+  description: "\U0001F680 leverage ON cutting-edge AI technology to revolutionize business operations across multiple domains. Our intelligent automation solutions streamline help desk operations, accelerate IT DevOps workflows, and optimize digital marketing campaigns. For customer support teams, we eliminate repetitive tasks and enable faster resolution times.."
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: ROGVERSE
+    images:
+      - url: '~/assets/images/default.png'
+        width: 1200
+        height: 628
+    type: website
+  twitter:
+    handle: '@godieph'
+    site: '@godieph'
+    cardType: summary_large_image
+
+i18n:
+  language: en
+  textDirection: ltr
+
+apps:
+  blog:
+    isEnabled: true
+    postsPerPage: 6
+
+    post:
+      isEnabled: true
+      permalink: '/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
+      robots:
+        index: true
+
+    list:
+      isEnabled: true
+      pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
+      robots:
+        index: true
+
+    category:
+      isEnabled: true
+      pathname: 'category' # Category main path /category/some-category, you can change this to "group" (/group/some-category)
+      robots:
+        index: true
+
+    tag:
+      isEnabled: true
+      pathname: 'tag' # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
+      robots:
+        index: false
+
+    isRelatedPostsEnabled: true
+    relatedPostsCount: 4
+
+analytics:
+  vendors:
+    googleAnalytics:
+      id: null # or "G-0MJMZXMS50"
+
+ui:
+  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
