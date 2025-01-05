@@ -27,6 +27,8 @@ export const headerData = {
 
 export const footerData = {
   links: [
+    { text: 'Blog', href: 'https://blog.rogverse.fyi' },
+    { text: 'About', href: getPermalink('/about') },
     
   ],
   secondaryLinks: [
