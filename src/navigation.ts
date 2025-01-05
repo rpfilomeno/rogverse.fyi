@@ -2,23 +2,17 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
 export const headerData = {
   links: [
-
     {
-      text: 'Pages',
-      links: [
-        {
-          text: 'Contact',
-          href: getPermalink('/contact'),
-        },
-        {
-          text: 'Terms',
-          href: getPermalink('/terms'),
-        },
-        {
-          text: 'Privacy policy',
-          href: getPermalink('/privacy'),
-        },
-      ],
+      text: 'Contact',
+      href: getPermalink('/contact'),
+    },
+    {
+      text: 'Terms',
+      href: getPermalink('/terms'),
+    },
+    {
+      text: 'Privacy policy',
+      href: getPermalink('/privacy'),
     },
 
   ],
@@ -27,11 +21,14 @@ export const headerData = {
 
 export const footerData = {
   links: [
-    { text: 'Blog', href: 'https://blog.rogverse.fyi' },
-    { text: 'About', href: getPermalink('/about') },
-    
+    {
+      links: [
+        
+      ],
+    },   
   ],
   secondaryLinks: [
+    { text: 'Blog', href: 'https://blog.rogverse.fyi' },
     { text: 'Contact', href: getPermalink('/contact') },
     { text: 'Terms', href: getPermalink('/terms') },
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
