@@ -23,6 +23,8 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 
 export default defineConfig({
   output: 'static',
+  site: 'https://rpfilomeno.github.io',
+  base: '/rogverse.fyi',
 
   integrations: [
     tailwind({
