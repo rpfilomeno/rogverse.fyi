@@ -14,31 +14,15 @@ const metadata = {
 
   <HeroText tagline="Contact" title="Let's Connect!" />
 
-  <ContactUs
-    id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-    ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="Our support team typically responds within 24 business hours."
-  />
+
+  <div class="mx-auto w-full max-w-3xl">
+    <iframe class="w-full" src="https://docs.google.com/forms/d/e/1FAIpQLSehzIIsJhCJTkLB4qaYjiWZ8dN2voWxIhxmPr6vAOx8y1M79w/viewform?embedded=true" width="640px" height="800px" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </div>
+
+  
+  <div style="text-align:center;  width:100%;">
+      
+  </div>
 
   <!-- Features2 Widget ************** -->
 
@@ -47,31 +31,31 @@ const metadata = {
     items={[
       {
         title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
+        description: `Message us for inquiries related to account management, website navigation or general questions about us.`,
       },
       {
         title: 'Contact sales',
         description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
+          'Message us for questions about pricing, customization options, workflow solutions, etc.',
       },
       {
         title: 'Technical support',
         description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
+          'Message us when facing issues like workflow activation, problems with account linking, API errors, or other technical challenges related to using the automation workflow.',
       },
       {
         title: 'Phone',
-        description: '+1 (234) 567-890',
+        description: '+1 (724) 995-2585',
         icon: 'tabler:headset',
       },
       {
         title: 'Email',
-        description: 'contact@support.com',
+        description: 'contact@rogverse.fyi',
         icon: 'tabler:mail',
       },
       {
         title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
+        description: 'Manila, Philippines',
         icon: 'tabler:map-pin',
       },
     ]}
