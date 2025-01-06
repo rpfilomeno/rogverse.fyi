@@ -3,7 +3,7 @@ title: 'Introducing ROGVERSE: Bringing Creativity Back to Work Through AI-Powere
 excerpt: We're thrilled to announce the general availability of ROGVERSE, our comprehensive AI automation platform that's reimagining how teams work. In a world where professionals often find themselves buried in repetitive tasks, ROGVERSE isn't just another automation tool – it's your team's creative catalyst.
 category: news
 tags:
-  - highlight
+  - highlights
 image: https://cdn.rogverse.fyi/Introducing-ROGVERSE-Bringing-Creativity-Back-to-Work-Through-AI-Powered-Automation.jpg
 publishDate: 2025-01-06T14:19:00
 author: Roger F.
