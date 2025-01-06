@@ -4,7 +4,7 @@ excerpt: We're thrilled to announce the general availability of ROGVERSE, our co
 category: news
 tags:
   - highlight
-image: https://utfs.io/f/y8dRiQ6wspTAX1j3sLKCMRG6LZu9wa7zKhvoFTnQfHyEJID0
+image: https://cdn.rogverse.fyi/Introducing-ROGVERSE-Bringing-Creativity-Back-to-Work-Through-AI-Powered-Automation.jpg
 publishDate: 2025-01-06T14:19:00
 author: Roger F.
 ---
