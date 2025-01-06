@@ -25,24 +25,16 @@ export const footerData = {
       text: 'Blog',
       links: [
         {
-          text: 'Blog List',
+          text: 'Articles',
           href: getBlogPermalink(),
         },
         {
-          text: 'Article',
-          href: getPermalink('get-started-website-with-astro-tailwind-css', 'post'),
+          text: 'News',
+          href: getPermalink('news', 'category'),
         },
         {
-          text: 'Article (with MDX)',
-          href: getPermalink('markdown-elements-demo-post', 'post'),
-        },
-        {
-          text: 'Category Page',
-          href: getPermalink('tutorials', 'category'),
-        },
-        {
-          text: 'Announcements',
-          href: getPermalink('astro', 'tag'),
+          text: 'Highlights',
+          href: getPermalink('highlights', 'tag'),
         },
       ],
     },
