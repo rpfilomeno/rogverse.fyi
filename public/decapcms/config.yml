@@ -1,4 +1,7 @@
-
+backend:
+  name: github
+  repo: rpfilomeno/rogverse.fyi # Path to your GitHub repository
+  branch: main
 
 media_folder: 'src/assets/images'
 public_folder: '/_astro'
