@@ -4,11 +4,11 @@ excerpt: We're thrilled to announce the genera availability of ROGVERSE, our com
 category: news
 tags:
   - highlight
-image: https://rogverse.fyi/_astro/hero-image.ughCzpPJ_P3AQd.webp
+image: https://rogverse.fyi/_astro/Introducing-ROGVERSE-Bringing-Creativity-Back-to-Work-Through-AI-Powered-Automation.jpg
 publishDate: 2025-01-06T14:19:00
 author: Roger F.
 ---
-![Reclaim your timw with AI](/_astro/Introducing ROGVERSE Bringing Creativity Back to Work Through AI-Powered Automation.jpg "Reclaim your timw with AI")
+![Reclaim your timw with AI](/_astro/Introducing-ROGVERSE-Bringing-Creativity-Back-to-Work-Through-AI-Powered-Automation.jpg "Reclaim your timw with AI")
 
 ### Automation that Amplifies Human Potential
 
