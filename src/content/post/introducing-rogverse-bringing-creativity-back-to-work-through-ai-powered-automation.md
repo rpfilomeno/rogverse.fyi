@@ -4,7 +4,7 @@ excerpt: We're thrilled to announce the genera availability of ROGVERSE, our com
 category: news
 tags:
   - highlight
-image: https://github.com/rpfilomeno/rogverse.fyi/blob/3a6b419e4f06e5daeb0d1b31b0d04e7b6c0d5ed7/src/assets/images/Introducing-ROGVERSE-Bringing-Creativity-Back-to-Work-Through-AI-Powered-Automation.jpg?raw=true
+image: https://utfs.io/f/y8dRiQ6wspTAX1j3sLKCMRG6LZu9wa7zKhvoFTnQfHyEJID0
 publishDate: 2025-01-06T14:19:00
 author: Roger F.
 ---
