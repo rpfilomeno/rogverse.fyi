@@ -8,8 +8,6 @@ image: https://rogverse.fyi/_astro/Introducing-ROGVERSE-Bringing-Creativity-Back
 publishDate: 2025-01-06T14:19:00
 author: Roger F.
 ---
-![Reclaim your timw with AI](/_astro/Introducing-ROGVERSE-Bringing-Creativity-Back-to-Work-Through-AI-Powered-Automation.jpg "Reclaim your timw with AI")
-
 ### Automation that Amplifies Human Potential
 
 ROGVERSE is built on a simple yet powerful principle: AI should enhance human creativity, not replace it. Our platform handles the routine aspects of help desk operations, DevOps workflows, and digital marketing tasks, freeing your team to focus on what humans do best – innovate, create, and solve complex challenges.
