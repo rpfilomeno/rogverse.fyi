@@ -54,7 +54,7 @@ export const footerData = {
     { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/rpfilomeno' },
   ],
   footNote: `
-    <img class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-sm" src="https://rogverse.fyi/favicon/favicon-32x32.png" alt="ROGVERSE logo" loading="lazy"></img>
+    <img class="w-5 h-5 md:w-6 md:h-6 md:-mt-0.5 bg-cover mr-1.5 rtl:mr-0 rtl:ml-1.5 float-left rtl:float-right rounded-sm" src="https://cdn.rogverse.fyi/favicon-32x32.png" alt="ROGVERSE logo" loading="lazy"></img>
     Built with <a class="text-blue-600 underline dark:text-muted" href="https://github.com/withastro/astro"> Astrowind</a> · ROGVERSE · All rights reserved.
   `,
 };
