@@ -10,7 +10,7 @@ site:
 metadata:
   title:
     default: ROGVERSE
-    template: '%s — AstroWind'
+    template: '%s — ROGVERSE'
   description: "\U0001F680 leverage ON cutting-edge AI technology to revolutionize business operations across multiple domains. Our intelligent automation solutions streamline help desk operations, accelerate IT DevOps workflows, and optimize digital marketing campaigns. For customer support teams, we eliminate repetitive tasks and enable faster resolution times.."
   robots:
     index: true
