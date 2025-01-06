@@ -22,10 +22,31 @@ export const headerData = {
 export const footerData = {
   links: [
     {
+      text: 'Blog',
       links: [
-        
+        {
+          text: 'Blog List',
+          href: getBlogPermalink(),
+        },
+        {
+          text: 'Article',
+          href: getPermalink('get-started-website-with-astro-tailwind-css', 'post'),
+        },
+        {
+          text: 'Article (with MDX)',
+          href: getPermalink('markdown-elements-demo-post', 'post'),
+        },
+        {
+          text: 'Category Page',
+          href: getPermalink('tutorials', 'category'),
+        },
+        {
+          text: 'Announcements',
+          href: getPermalink('astro', 'tag'),
+        },
       ],
-    },   
+    },
+
   ],
   secondaryLinks: [
     { text: 'Blog', href: 'https://blog.rogverse.fyi' },
