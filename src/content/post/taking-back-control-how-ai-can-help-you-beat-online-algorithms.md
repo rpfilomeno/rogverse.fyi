@@ -12,8 +12,6 @@ image: https://cdn.rogverse.fyi/Taking-Back-Control-How-AI-Can-Help-You-Beat-Onl
 publishDate: 2025-01-08T09:27:00
 author: Roger F.
 ---
-Ever feel like your phone or computer knows you a little *too* well? Like it's showing you the same stuff over and over? You're not imagining things! Websites and apps use computer programs called algorithms to decide what you see. They're like digital gatekeepers that can end up trapping you in a bubble of the same old content. But here's the good news: another type of computer smarts, called Artificial Intelligence (AI), can help you break free and see a wider world online.
-
 ## How Platform Algorithms Work
 
 Think about how you use the internet. Every time you click on something, watch a video, or search for information, algorithms are watching. They use this information to guess what you want to see next.
@@ -21,7 +19,6 @@ Think about how you use the internet. Every time you click on something, watch a
 Here's an example: let's say you watch a lot of cat videos (because who doesn't love cats?). The algorithm might think, "This person loves cats!" and start showing you only cat videos. Even if you're also interested in dogs, birds, or taking cool pet photos, the algorithm might not show you these things. It's like wearing blinders that only let you see cat content.
 
 This creates what experts call a "filter bubble." You end up seeing only things that match what you've clicked on before. Even worse, you might only see opinions that you already agree with, missing out on different viewpoints and new ideas.
-
 
 ## How AI Can Help You Break Free
 
@@ -32,15 +29,10 @@ Going back to our cat video example, AI might notice that you're interested in a
 Here's a cool way some people are using AI to beat information overload: imagine having your own personal AI helper that reads all your favorite newsletters and listens to your podcasts for you. Using free AI tools like Ollama and Flowise, you can create a system that:
 
 - Collects all your daily newsletters and podcast transcripts
-
 - Uses AI to read through everything and pick out the most important parts
-
 - Creates short, easy-to-understand summaries of each article and episode
-
 - Detect AI generated content and give it lower priority.
-
 - Combines all these summaries into a short audio message
-
 - Sends this audio straight to your phone through Telegram
 
 It's like having a super-smart friend who reads everything for you and tells you just the important stuff in a quick 3-5 minute message. Instead of being overwhelmed by too much information or stuck in what algorithms think you should see, you get to hear about all kinds of different topics that matter to you.
