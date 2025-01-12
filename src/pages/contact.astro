@@ -15,10 +15,78 @@ const metadata = {
   <HeroText tagline="Contact" title="Let's Connect!" />
 
 
-  <div class="mx-auto w-full max-w-3xl">
-    <iframe class="w-full" src="https://docs.google.com/forms/d/e/1FAIpQLSehzIIsJhCJTkLB4qaYjiWZ8dN2voWxIhxmPr6vAOx8y1M79w/viewform?embedded=true" width="640px" height="800px" frameborder="0" marginheight="0" marginwidth="0" scrolling="no">Loading…</iframe>
-  </div>
+  <ContactUs
+    id="contactform"
+    inputs={[
+      {
+        type: 'hidden',
+        name:'access_key',
+        value:'0d455969-0491-4990-a588-405ec6bb75ae'
+      },
+      {
+        type: 'text',
+        name: 'name',
+        label: 'Name',
+        required: true,
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Email',
+        required: true,
+      },
+    ]}
+    textarea={{
+      label: 'Message',
+    }}
+    description="By submitting this contact form, you acknowledge and agree to the collection of your personal information.",
+    result="result"
+  />
+  
 
+
+  <script is:inline>
+    const form = document.querySelector('form');
+    const result = document.getElementById('result');
+    
+    form.addEventListener('submit', function(e) {
+        const formData = new FormData(form);
+        e.preventDefault();
+    
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+    
+        result.innerHTML = "Please wait..."
+    
+        fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    result.innerHTML = json.message;
+                } else {
+                    console.log(response);
+                    result.innerHTML = json.message;
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                result.innerHTML = "Something went wrong!";
+            })
+            .then(function() {
+                form.reset();
+                setTimeout(() => {
+                    result.style.display = "none";
+                }, 3000);
+            });
+    });
+    </script>
   
   <div style="text-align:center;  width:100%;">
       

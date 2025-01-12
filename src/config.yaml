@@ -68,5 +68,7 @@ analytics:
     googleAnalytics:
       id: G-7S8D7JVJPF # or "G-7S8D7JVJPF"
 
+
+
 ui:
   theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"

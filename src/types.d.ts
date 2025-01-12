@@ -167,6 +167,8 @@ export interface Input {
   label?: string;
   autocomplete?: string;
   placeholder?: string;
+  value?: string;
+  required?:boolean;
 }
 
 export interface Textarea {
@@ -210,6 +212,7 @@ export interface Form {
   disclaimer?: Disclaimer;
   button?: string;
   description?: string;
+  result?: string;
 }
 
 // WIDGETS
