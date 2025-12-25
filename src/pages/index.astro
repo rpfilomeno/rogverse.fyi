@@ -9,11 +9,11 @@ import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'ROGVERSE — leverage on cutting-edge AI technology to revolutionize business operations across multiple domains',
+  title:
+    'ROGVERSE — leverage on cutting-edge AI technology to revolutionize business operations across multiple domains',
   ignoreTitleTemplate: true,
 };
 ---
@@ -32,7 +32,6 @@ const metadata = {
       },
       { text: 'Learn more', href: '#Services' },
     ]}
-    image={{ src: 'https://cdn.rogverse.fyi/brain-splat.png', alt: 'ROGVERSE Powerful AI-centric Automations' }}
   >
     <Fragment slot="title">
       Transform Your <span class="hidden xl:inline">Business</span> with
@@ -41,12 +40,13 @@ const metadata = {
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">ROGVERSE</span> harnesses the power of AI to supercharge your operations.</span>
+        <span class="font-semibold">ROGVERSE</span> harnesses the power of AI to supercharge your operations.</span
+      >
       <span class="block mb-1 sm:hidden font-bold text-blue-600">ROGVERSE: Production-ready.</span>
-      Suitable for Enterprise Level, SaaS startups, Digital-first companies, Digital marketing agencies, IT consulting firms, Companies with large help desk operations and Influencer marketing platforms.
+      Suitable for Enterprise Level, SaaS startups, Digital-first companies, Digital marketing agencies, IT consulting firms,
+      Companies with large help desk operations and Influencer marketing platforms.
     </Fragment>
   </Hero>
-
   <!-- Note Widget ******************* -->
 
   <Note />
@@ -86,7 +86,7 @@ const metadata = {
       {
         title: 'Analytics & Reporting Dashboard',
         description:
-          "Get comprehensive insights across all your automated processes with our unified analytics platform. This service provides real-time monitoring, custom report generation, predictive analytics, and performance tracking across help desk, DevOps, marketing, and influencer campaigns.",
+          'Get comprehensive insights across all your automated processes with our unified analytics platform. This service provides real-time monitoring, custom report generation, predictive analytics, and performance tracking across help desk, DevOps, marketing, and influencer campaigns.',
         icon: 'tabler:report-analytics',
       },
       {
@@ -115,7 +115,6 @@ const metadata = {
         description:
           'Implementation of comprehensive security measures including end-to-end encryption, multi-factor authentication, regular security audits, and continuous monitoring. We follow the principle of least privilege access, maintain detailed audit logs, and ensure compliance with international data protection standards like GDPR, HIPAA, and SOC 2.',
       },
-
     ]}
     image={{
       src: 'https://cdn.rogverse.fyi/build-on-giants.png',
@@ -147,7 +146,6 @@ const metadata = {
         description:
           'We maintain a customer-centric approach with 24/7 support availability, structured escalation protocols, and comprehensive documentation. Our support team follows the ITIL framework for incident management and maintains an average response time of under 15 minutes for critical issues.',
       },
-      
     ]}
     image={{
       src: 'https://cdn.rogverse.fyi/blueprint.png',
@@ -161,8 +159,6 @@ const metadata = {
     </Fragment>
   </Content>
 
-  
-
   <!-- Steps Widget ****************** -->
 
   <Steps
@@ -172,13 +168,13 @@ const metadata = {
       {
         title: 'Step 1: <span class="font-medium">Audit Current Operations & Pain Points</span>',
         description:
-          "Conduct a thorough assessment of your current business processes, documenting areas where teams spend most of their time, identifying bottlenecks, and noting repetitive tasks. Track time spent on manual processes, measure error rates, and gather feedback from employees about tasks they find most time-consuming or frustrating. This audit should include analyzing customer service response times, IT ticket resolution rates, marketing campaign management time, and any areas where data processing or decision-making creates delays.",
+          'Conduct a thorough assessment of your current business processes, documenting areas where teams spend most of their time, identifying bottlenecks, and noting repetitive tasks. Track time spent on manual processes, measure error rates, and gather feedback from employees about tasks they find most time-consuming or frustrating. This audit should include analyzing customer service response times, IT ticket resolution rates, marketing campaign management time, and any areas where data processing or decision-making creates delays.',
         icon: 'tabler:viewfinder',
       },
       {
         title: 'Step 2: <span class="font-medium">Data Volume & Pattern Analysis</span>',
         description:
-          "Evaluate the volume of data your business handles daily across different departments. Look at the number of customer queries, support tickets, social media interactions, and routine operations. Analyze if there are consistent patterns in these interactions that could be automated, such as common customer questions, regular system maintenance tasks, or repetitive marketing activities. ",
+          'Evaluate the volume of data your business handles daily across different departments. Look at the number of customer queries, support tickets, social media interactions, and routine operations. Analyze if there are consistent patterns in these interactions that could be automated, such as common customer questions, regular system maintenance tasks, or repetitive marketing activities. ',
         icon: 'tabler:database-search',
       },
       {
@@ -193,7 +189,6 @@ const metadata = {
           'Examine how your current team members spend their time and identify high-value activities versus routine tasks that could be automated. Look for areas where skilled employees are spending significant time on repetitive work instead of strategic initiatives. Consider current staff burnout levels, overtime costs, and the ability to scale operations with existing resources. This review should help identify where automation could free up human resources for more strategic work.',
         icon: 'tabler:gauge',
       },
-
     ]}
     image={{
       src: 'https://cdn.rogverse.fyi/left-stair.png',
@@ -201,12 +196,11 @@ const metadata = {
     }}
   />
 
-    <!-- Steps Widget ****************** -->
+  <!-- Steps Widget ****************** -->
 
-    <Steps
+  <Steps
     title="Take the future into consideration."
     items={[
-
       {
         title: 'Step 5: <span class="font-medium">Scalability Requirements</span>',
         description:
@@ -216,13 +210,13 @@ const metadata = {
       {
         title: 'Step 6: <span class="font-medium">Technology Readiness Assessment</span>',
         description:
-          'Evaluate your current technical infrastructure, including existing software systems, data quality, and integration capabilities. Determine if you have the necessary digital foundation to implement AI automation effectively. This includes assessing data storage systems, current automation tools, API availability, and team technical capabilities. Consider both the technical requirements for implementation and the team\'s readiness to adopt new technology.',
+          "Evaluate your current technical infrastructure, including existing software systems, data quality, and integration capabilities. Determine if you have the necessary digital foundation to implement AI automation effectively. This includes assessing data storage systems, current automation tools, API availability, and team technical capabilities. Consider both the technical requirements for implementation and the team's readiness to adopt new technology.",
         icon: 'tabler:package',
       },
-       {
+      {
         title: 'Step 7: <span class="font-medium">Regulatory & Compliance Impact</span>',
         description:
-          'Review your industry\'s regulatory requirements and how automation might affect compliance. Consider data protection regulations, industry-specific requirements, and any necessary audit trails. Evaluate how AI automation could help improve compliance through better documentation and consistent process execution, while ensuring that automated processes meet all regulatory requirements.',
+          "Review your industry's regulatory requirements and how automation might affect compliance. Consider data protection regulations, industry-specific requirements, and any necessary audit trails. Evaluate how AI automation could help improve compliance through better documentation and consistent process execution, while ensuring that automated processes meet all regulatory requirements.",
         icon: 'tabler:checkup-list',
       },
       {
@@ -231,7 +225,6 @@ const metadata = {
           'Analyze your customer journey and identify points where automation could improve the experience. Look for areas where response times could be faster, service could be more consistent, or personalization could be enhanced. Consider customer feedback and satisfaction metrics to identify where automated responses or actions could lead to better outcomes. This mapping should include both current pain points and opportunities for enhanced service delivery.',
         icon: 'tabler:ux-circle',
       },
-
 
       {
         title: 'Ready!',
@@ -253,13 +246,14 @@ const metadata = {
     items={[
       {
         title: 'Social Post',
-        description: "Tired of copywriting for each different social platform? Our solution makes sure the right format and tone is used for each platform. Make it short and direct for Twiiter, casual tone for Facebook while be formal and concise for LinkedIn.",
+        description:
+          'Tired of copywriting for each different social platform? Our solution makes sure the right format and tone is used for each platform. Make it short and direct for Twiiter, casual tone for Facebook while be formal and concise for LinkedIn.',
         icon: 'flat-color-icons:voice-presentation',
       },
       {
         title: 'Level 1 First Responder',
         description:
-          'Let AI triage your helpdesk tickets and make sure to meet that SLA for first response. Automatically request for missing informations and direct them to existing Knowledge Base articles while waiting for Level 2 support\'s response.',
+          "Let AI triage your helpdesk tickets and make sure to meet that SLA for first response. Automatically request for missing informations and direct them to existing Knowledge Base articles while waiting for Level 2 support's response.",
         icon: 'flat-color-icons:online-support',
       },
       {
@@ -270,8 +264,7 @@ const metadata = {
       },
       {
         title: 'Customer Sentiment',
-        description:
-          "Transcribe calls and analyze the customer sentiment so customer relations can follow up",
+        description: 'Transcribe calls and analyze the customer sentiment so customer relations can follow up',
         icon: 'flat-color-icons:phone',
       },
       {
@@ -282,18 +275,16 @@ const metadata = {
       },
       {
         title: 'Categorization',
-        description: 'Automaticallly label or add labels emails an intelligently tag possible sales leads as well as data leaks and cyber attacks!',
+        description:
+          'Automaticallly label or add labels emails an intelligently tag possible sales leads as well as data leaks and cyber attacks!',
         icon: 'flat-color-icons:feedback',
       },
-      
     ]}
   >
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Features2>
-
-
 
   <!-- FAQs Widget ******************* -->
 
@@ -306,7 +297,7 @@ const metadata = {
       {
         title: 'Are ROGVERSE solutions compatible with our existing tools and platforms?',
         description:
-          "Yes, ROGVERSE solutions are designed to integrate seamlessly with most major business tools and platforms. We support integration with popular help desk systems (Zendesk, ServiceNow), DevOps tools (Jenkins, GitHub), marketing platforms (HubSpot, Salesforce), and social media management tools. Our API-first approach ensures compatibility with custom solutions as well.",
+          'Yes, ROGVERSE solutions are designed to integrate seamlessly with most major business tools and platforms. We support integration with popular help desk systems (Zendesk, ServiceNow), DevOps tools (Jenkins, GitHub), marketing platforms (HubSpot, Salesforce), and social media management tools. Our API-first approach ensures compatibility with custom solutions as well.',
       },
       {
         title: 'What level of customization is available for AI automation?',
@@ -316,20 +307,17 @@ const metadata = {
       {
         title: 'How do you ensure data security and privacy?',
         description:
-          "We implement enterprise-grade security measures including end-to-end encryption, multi-factor authentication, and regular security audits. ROGVERSE is compliant with major data protection regulations (GDPR, HIPAA, SOC 2). All data is stored in secure, geographically redundant data centers with strict access controls.",
+          'We implement enterprise-grade security measures including end-to-end encryption, multi-factor authentication, and regular security audits. ROGVERSE is compliant with major data protection regulations (GDPR, HIPAA, SOC 2). All data is stored in secure, geographically redundant data centers with strict access controls.',
       },
-
     ]}
   />
-
 
   <!-- HighlightedPosts Widget ******* -->
 
   <BlogLatestPosts
     title="Find out more content in our Blog"
-    information={`Gaining Insights into the AI-Powered Workplace. Get up-to-date with our latest news, highlights, case studies, tutorials and more.`
-    }
-  />  
+    information={`Gaining Insights into the AI-Powered Workplace. Get up-to-date with our latest news, highlights, case studies, tutorials and more.`}
+  />
 
   <!-- CallToAction Widget *********** -->
 
@@ -349,8 +337,8 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="subtitle">
-      Be very surprised by what AI powered automation can do for you. <br class="hidden md:inline" />Don't
-      waste more time! :P
+      Be very surprised by what AI powered automation can do for you. <br class="hidden md:inline" />Don't waste more
+      time! :P
     </Fragment>
   </CallToAction>
 </Layout>

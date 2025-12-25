@@ -1,0 +1,328 @@
+---
+// RetroBrain.astro
+interface Props {
+  height?: string;
+  color?: string;
+  zoom?: number;
+}
+
+const { height = '400px', color = '#00ff41', zoom = 300 } = Astro.props;
+---
+
+<div class="brain-wrapper" data-zoom={zoom} style={`--theme-color: ${color}; height: ${height};`}>
+  <div class="scanlines"></div>
+  <svg
+    id="brain-svg"
+    viewBox="-600 -600 1200 1200"
+    preserveAspectRatio="xMidYMid meet"
+    aria-label="3D Retro AI Brain visualization"
+  >
+    <defs>
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="2.5" result="coloredBlur"></feGaussianBlur>
+        <feMerge>
+          <feMergeNode in="coloredBlur"></feMergeNode>
+          <feMergeNode in="SourceGraphic"></feMergeNode>
+        </feMerge>
+      </filter>
+    </defs>
+    <!-- Group for points and connections -->
+    <g id="brain-structure" filter="url(#glow)"></g>
+  </svg>
+</div>
+
+<style>
+  .brain-wrapper {
+    position: relative;
+    width: 100%;
+    background-color: transparent;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+  }
+
+  /* Retro CRT Scanline Effect */
+  .scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0) 50%,
+      rgba(0, 0, 0, 0.2) 50%,
+      rgba(0, 0, 0, 0.2)
+    );
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.6;
+  }
+
+  /* Add a subtle vignette */
+  .brain-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 60%, transparent 100%);
+    pointer-events: none;
+    z-index: 11;
+  }
+</style>
+
+<script>
+  // ---------------------------------------------------------
+  // Configuration
+  // ---------------------------------------------------------
+  const POINT_COUNT = 180;
+  const CONNECTION_DISTANCE = 50;
+  const ROTATION_SPEED = 0.005;
+  const MOUSE_SENSITIVITY = 0.0001;
+  const wrapper = document.querySelector('.brain-wrapper');
+  const ZOOM = parseFloat(wrapper?.getAttribute('data-zoom') || '400');
+
+  // ---------------------------------------------------------
+  // Math & 3D Logic
+  // ---------------------------------------------------------
+  class Point3D {
+    x: number;
+    y: number;
+    z: number;
+    originX: number;
+    originY: number;
+    originZ: number;
+
+    constructor(x: number, y: number, z: number) {
+      this.x = x;
+      this.y = y;
+      this.z = z;
+      this.originX = x;
+      this.originY = y;
+      this.originZ = z;
+    }
+
+    rotate(angleX: number, angleY: number) {
+      // Rotation Matrix for Y axis
+      const cosY = Math.cos(angleY);
+      const sinY = Math.sin(angleY);
+      let x1 = this.originX * cosY - this.originZ * sinY;
+      let z1 = this.originZ * cosY + this.originX * sinY;
+
+      // Rotation Matrix for X axis
+      const cosX = Math.cos(angleX);
+      const sinX = Math.sin(angleX);
+      let y1 = this.originY * cosX - z1 * sinX;
+      let z2 = z1 * cosX + this.originY * sinX;
+
+      this.x = x1;
+      this.y = y1;
+      this.z = z2;
+    }
+
+    project(perspective: number) {
+      const scale = perspective / (perspective + this.z);
+      return {
+        x: this.x * scale,
+        y: this.y * scale,
+        scale: scale,
+        alpha: scale, // fade out points further back
+      };
+    }
+  }
+
+  // ---------------------------------------------------------
+  // Main Logic
+  // ---------------------------------------------------------
+  const container = document.getElementById('brain-structure');
+  const svg = document.getElementById('brain-svg');
+  const points: Point3D[] = [];
+  const svgElements: { circle: SVGCircleElement; point: Point3D }[] = [];
+  const lines: { line: SVGLineElement; p1: Point3D; p2: Point3D }[] = [];
+
+  let angleX = 0;
+  let angleY = 0;
+  let targetAngleX = 0;
+  let targetAngleY = 0;
+  let autoRotateY = 0;
+
+  // Initialize Points in a Brain Shape
+  function initBrain() {
+    for (let i = 0; i < POINT_COUNT; i++) {
+      // Create two hemispheres
+      const hemisphere = i % 2 === 0 ? 1 : -1;
+      // Left = -1 (Magenta), Right = 1 (Cyan)
+      const color = hemisphere === -1 ? '#ff00ff' : '#00ffff';
+
+      // Spherical coordinates with some noise for irregularity
+      const theta = Math.random() * Math.PI * 2; // Longitude
+      const phi = Math.acos(Math.random() * 2 - 1); // Latitude
+
+      const radius = 180 + Math.random() * 20;
+
+      // Convert to Cartesian
+      let x = radius * Math.sin(phi) * Math.cos(theta);
+      let y = radius * Math.sin(phi) * Math.sin(theta);
+      let z = radius * Math.cos(phi);
+
+      // SQUASH IT: Brains are not spheres.
+      // Flatten the bottom slightly
+      y = y * 0.8;
+      // Elongate front-to-back (Z-axis)
+      z = z * 1.2;
+      // Separate hemispheres (X-axis)
+      x = Math.abs(x) * hemisphere + hemisphere * 20;
+
+      const p = new Point3D(x, y, z);
+      points.push(p);
+
+      // Create SVG Circle for this point
+      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.setAttribute('r', (Math.random() * 2 + 1).toString());
+      circle.setAttribute('fill', color);
+      circle.setAttribute('data-color', color);
+      container?.appendChild(circle);
+      svgElements.push({ circle, point: p });
+    }
+
+    // Generate static connections (synapses)
+    // We do this once to avoid O(N^2) checks every frame
+    points.forEach((p1, index) => {
+      const h1 = index % 2 === 0 ? 1 : -1;
+      const color1 = h1 === -1 ? '#ff00ff' : '#00ffff';
+
+      // Connect to nearest neighbors only
+      points.slice(index + 1).forEach((p2) => {
+        const dx = p1.originX - p2.originX;
+        const dy = p1.originY - p2.originY;
+        const dz = p1.originZ - p2.originZ;
+        const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
+
+        if (dist < CONNECTION_DISTANCE) {
+          const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+          line.setAttribute('stroke', color1);
+          line.setAttribute('stroke-width', '0.5');
+          line.setAttribute('opacity', '0.3');
+          container?.insertBefore(line, container.firstChild); // Put lines behind dots
+          lines.push({ line, p1, p2 });
+        }
+      });
+    });
+  }
+
+  // ---------------------------------------------------------
+  // Interaction
+  // ---------------------------------------------------------
+  svg?.addEventListener('mousemove', (e) => {
+    const rect = svg.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    targetAngleY = x * MOUSE_SENSITIVITY;
+    targetAngleX = -y * MOUSE_SENSITIVITY;
+  });
+
+  // Reset when mouse leaves
+  svg?.addEventListener('mouseleave', () => {
+    targetAngleX = 0;
+    targetAngleY = 0;
+  });
+
+  // ---------------------------------------------------------
+  // Micro-Animations (Synapse Firing)
+  // ---------------------------------------------------------
+  function triggerPulse() {
+    if (svgElements.length === 0) return;
+
+    // Pick a random node
+    const targetIdx = Math.floor(Math.random() * svgElements.length);
+    const el = svgElements[targetIdx].circle;
+
+    // Flash white
+    el.style.transition = 'fill 0.1s, r 0.1s';
+    el.setAttribute('fill', '#ffffff');
+    el.setAttribute('r', '6'); // Grow
+
+    setTimeout(() => {
+      el.style.transition = 'fill 0.5s, r 0.5s';
+      const originalColor = el.getAttribute('data-color') || 'var(--theme-color)';
+      el.setAttribute('fill', originalColor);
+      el.setAttribute('r', (Math.random() * 2 + 1).toString());
+    }, 100);
+
+    // Randomize next pulse
+    setTimeout(triggerPulse, Math.random() * 500 + 200);
+  }
+
+  // ---------------------------------------------------------
+  // Animation Loop
+  // ---------------------------------------------------------
+  function animate() {
+    // Smooth Interpolation (Lerp)
+    angleX += (targetAngleX - angleX) * 0.1;
+    angleY += (targetAngleY - angleY) * 0.1;
+
+    // Constant slow rotation
+    autoRotateY += ROTATION_SPEED;
+    const finalAngleY = angleY + autoRotateY;
+
+    // Update Points
+    points.forEach((p) => p.rotate(angleX, finalAngleY));
+
+    // Render Lines
+    lines.forEach((l) => {
+      const proj1 = l.p1.project(ZOOM);
+      const proj2 = l.p2.project(ZOOM);
+
+      // Culling lines behind center (simple occlusion)
+      if (proj1.scale < 0 || proj2.scale < 0) return;
+
+      l.line.setAttribute('x1', proj1.x.toFixed(1));
+      l.line.setAttribute('y1', proj1.y.toFixed(1));
+      l.line.setAttribute('x2', proj2.x.toFixed(1));
+      l.line.setAttribute('y2', proj2.y.toFixed(1));
+
+      // Fade lines in the back
+      const opacity = Math.min(proj1.alpha, proj2.alpha) * 0.4;
+      l.line.setAttribute('opacity', opacity.toString());
+    });
+
+    // Render Points
+    svgElements.forEach((item) => {
+      const proj = item.point.project(ZOOM);
+
+      // Update position
+      item.circle.setAttribute('cx', proj.x.toFixed(1));
+      item.circle.setAttribute('cy', proj.y.toFixed(1));
+
+      // Z-Scale (things closer are bigger)
+      // Note: We're scaling the entire element which affects position too,
+      // but it seems to create the desired retro distortion effect.
+      item.circle.setAttribute('transform', `scale(${proj.scale})`);
+
+      // Z-Index Hack: Sort DOM?
+      // SVG doesn't support z-index. To do true z-sorting we'd need to re-append elements.
+      // For performance, we just change opacity based on Z depth.
+      item.circle.setAttribute('opacity', proj.alpha.toString());
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  // Start
+  initBrain();
+  triggerPulse();
+  animate();
+</script>
